@@ -1,5 +1,5 @@
 {
-  "name": "channelkit",
+  "name": "@billdaddy/channelkit",
   "version": "0.1.0",
   "description": "Zero-dependency TypeScript Go-style async channels: buffered/unbuffered Channel<T>, select(), close(), for-await iteration, AbortSignal cancellation. Port of Go channels / Python asyncio.Queue / C# Channel<T>.",
   "type": "module",

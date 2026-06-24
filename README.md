@@ -4,19 +4,19 @@
 
 > Zero-dependency TypeScript Go-style async channels: buffered/unbuffered `Channel<T>`, `select()`, `merge()`, `pipeline()`, `for-await` iteration, `AbortSignal` cancellation. Port of Go channels / Python `asyncio.Queue` / C# `Channel<T>`.
 
-[![npm](https://img.shields.io/npm/v/channelkit)](https://www.npmjs.com/package/channelkit)
+[![npm](https://img.shields.io/npm/v/@billdaddy/channelkit)](https://www.npmjs.com/package/@billdaddy/channelkit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Install
 
 ```bash
-npm install channelkit
+npm install @billdaddy/channelkit
 ```
 
 ## Quick start
 
 ```typescript
-import { channel, select, merge, fromIterable, toArray } from "channelkit";
+import { channel, select, merge, fromIterable, toArray } from "@billdaddy/channelkit";
 
 // Buffered channel
 const ch = channel<number>(10);
@@ -147,7 +147,7 @@ const done = after(1000, "timeout");
 ### Worker pool
 
 ```typescript
-import { channel, fromIterable } from "channelkit";
+import { channel, fromIterable } from "@billdaddy/channelkit";
 
 const jobs = fromIterable([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 const results = channel<number>(10);
@@ -171,7 +171,7 @@ const all = await toArray(results);
 ### Select with timeout
 
 ```typescript
-import { channel, select, after } from "channelkit";
+import { channel, select, after } from "@billdaddy/channelkit";
 
 const data = channel<Response>(1);
 const timeout = after(5000, null);
@@ -190,7 +190,7 @@ if (index === 0 && value) {
 ### Pipeline stage
 
 ```typescript
-import { fromIterable, pipeline, toArray } from "channelkit";
+import { fromIterable, pipeline, toArray } from "@billdaddy/channelkit";
 
 const urls = fromIterable(["https://...", "https://..."]);
 const responses = pipeline(urls, url => fetch(url));
@@ -202,7 +202,7 @@ const results = await toArray(jsons);
 ### Pub/Sub fan-out
 
 ```typescript
-import { channel, fanOut, fromIterable } from "channelkit";
+import { channel, fanOut, fromIterable } from "@billdaddy/channelkit";
 
 const events = channel<string>(16);
 const logger = channel<string>(16);
